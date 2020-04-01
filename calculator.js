@@ -18,9 +18,12 @@ const exampleMultiplicationInput = {
 }
 const exampleDivisionInput = {
   num1: 3,
-  num2: 4,
+  num2: 0,
   operation: "divide",
   operation: "/",
+}
+const{
+
 }
 
 //hard code the operators
@@ -28,22 +31,13 @@ const operatorOptions = ["add", "+", "subtract", "-", "multiply", "*", "divide",
 
 //prompts for user input
 console.log("Welcome to my first JavaScript calculator.")
-
-//validate user input 
+console.log("Please enter your two numbers, and one of the following operators; (+), subtract (-), multiply (*), or divide (/).");
 
 //https://www.w3schools.com/js/js_switch.asp
-
 //validate operation
-if (operatorOptions.includes(user_input.operation) === false) {
-  console.log("Please tell me to add (+), subtract (-), multiply (*), or divide (/)!");
-} 
-
 const calculate = function(user_input) {
-  // confirmNumber(user_input);
-  // confirmOperator(user_input);
-  
-  if (valid(user_input)) {
-    switch (input.command) {
+  if (operatorOptions.includes(user_input.operation)) {
+    switch (user_input.operation) {
       case "add":
       case "+":
         return (user_input.num1 + user_input.num2);
@@ -58,10 +52,8 @@ const calculate = function(user_input) {
         break;//
       case "divide":
       case "/":
-        return (user_input.num1 / user_input.num2);
-        break;//
-        if(user_input.num2 === 0) {
-          console.log("Sorry, you cannot divide by 0.");
+        if (user_input.num2 === 0) {
+          throw "Sorry, you cannot divide by 0.";
         }
           else {
           return (user_input.num1 / user_input.num2);
@@ -69,15 +61,5 @@ const calculate = function(user_input) {
     }
   }
 }
-
-//parseFloat() function parses a string and returns a floating point number. 
-//determines if the first character in the specified string is a number. 
-//If it is, it parses the string until it reaches the end of the number, 
-//and returns the number as a number, not as a string.
-
-
-//throw NaN
-
 //print 
-calculate(exampleMultiplicationInput);
-
+console.log(calculate(exampleDivisionInput));
