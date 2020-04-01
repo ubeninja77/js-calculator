@@ -53,21 +53,24 @@ const exampleNumberCheck = {
   num2: 13,
   operation: "/",
 }
+const exampleOperatorCheck = {
+  num1: 2,
+  num2: 13,
+  operation: "?",
+}
 
 //hard code the operators
 const operatorOptions = ["add", "+", "subtract", "-", "multiply", "*", "divide", "/"];
 
 //prompts for user input
-console.log("Welcome to my first JavaScript calculator.")
+console.log("Welcome to my first JavaScript calculator.");
 console.log("Please enter your two numbers, and one of the following operators; (+), subtract (-), multiply (*), or divide (/).");
 
 const validOperator = function validOperator(user_input) {
-  if(operatorOptions.includes(user_input.operation) === false) {
+  if(!operatorOptions.includes(user_input.operation)) {
     console.log("Please enter a valid operator; +), subtract (-), multiply (*), or divide (/).");
   }
 }
-
-//https://www.w3schools.com/js/js_switch.asp
 const calculate = function(user_input) {
   if (isNaN(user_input.num2) || isNaN(user_input.num1)){
     console.log("Sorry, that is not a valid number.");
@@ -77,15 +80,12 @@ const calculate = function(user_input) {
       case "add":
       case "+":
         return (user_input.num1 + user_input.num2);
-        break;// <-- why you not working???
       case "subtract":
       case "-":
         return (user_input.num1 - user_input.num2);
-        break;//
       case "multiply":
       case "*":
         return (user_input.num1 * user_input.num2);
-        break;//
       case "divide":
       case "/":
         if (user_input.num2 === 0) {
@@ -93,7 +93,6 @@ const calculate = function(user_input) {
         }
           else {
           return (user_input.num1 / user_input.num2);
-          break;
           }
     }
   }
@@ -111,3 +110,4 @@ console.log(calculate(exampleDivisionInput2));
 console.log(calculate(exampleZeroDivisionInput));
 console.log(calculate(exampleZeroDivisionInput2));
 console.log(calculate(exampleNumberCheck));
+console.log(calculate(exampleOperatorCheck));
